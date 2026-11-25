@@ -1,0 +1,15 @@
+GET /healthz: 200 PASS
+GET /api/users: 200 PASS
+POST /api/users: 201 PASS
+GET /api/users/1: 200 PASS
+PUT /api/users/1: 200 PASS
+POST /api/users: 400 PASS
+PATCH /api/users/1: 405 PASS
+DELETE /api/users/1: 204 PASS
+GET /api/users/1: 404 PASS
+GET /api/integration/status: 200 PASS
+GET /api/integration/status: 200 PASS
+GET /api/integration/status: 200 PASS
+GET /metrics: 200 PASS
+Dispatcher: {'failed': 0, 'mode': 'local', 'processed': 3, 'queue_depth': 0, 's3_enabled': False}
+Mode: native Windows process, S3_ENABLED=false. Not a Docker/wrk benchmark.

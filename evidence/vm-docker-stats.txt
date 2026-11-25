@@ -1,0 +1,4 @@
+CONTAINER ID   NAME                           CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O        PIDS
+ab9b3aab1c5b   go-dz2-20261123-prometheus-1   1.79%     17.13MiB / 8.135GiB   0.21%     196kB / 30.8kB    4.1kB / 90.1kB   9
+5b02c90bb224   go-dz2-20261123-app-1          0.00%     34.73MiB / 8.135GiB   0.42%     27MB / 44.1MB     10.2MB / 0B      16
+e89c6283a1f6   go-dz2-20261123-minio-1        1.10%     78.8MiB / 8.135GiB    0.95%     28.4kB / 17.2kB   12.3kB / 414kB   10

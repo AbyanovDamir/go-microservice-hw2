@@ -1,0 +1,19 @@
+app-1    | {"time":"2026-11-23T13:01:56.004889908Z","level":"INFO","msg":"audit","sequence":1,"action":"CREATE","user_id":1}
+minio-1  | INFO: Formatting 1st pool, 1 set(s), 1 drives per set.
+app-1    | {"time":"2026-11-23T13:01:56.260229163Z","level":"INFO","msg":"notification","event":"CREATE","user_id":1,"adapter":"log"}
+app-1    | {"time":"2026-11-23T13:01:56.260430279Z","level":"INFO","msg":"audit","sequence":2,"action":"UPDATE","user_id":1}
+app-1    | {"time":"2026-11-23T13:01:56.295294409Z","level":"INFO","msg":"notification","event":"UPDATE","user_id":1,"adapter":"log"}
+app-1    | {"time":"2026-11-23T13:01:56.296861371Z","level":"INFO","msg":"audit","sequence":3,"action":"DELETE","user_id":1}
+app-1    | {"time":"2026-11-23T13:01:56.321354556Z","level":"INFO","msg":"notification","event":"DELETE","user_id":1,"adapter":"log"}
+app-1    | {"time":"2026-11-23T13:02:36.075548467Z","level":"INFO","msg":"audit","sequence":4,"action":"CREATE","user_id":2}
+app-1    | {"time":"2026-11-23T13:02:36.229234945Z","level":"INFO","msg":"notification","event":"CREATE","user_id":2,"adapter":"log"}
+minio-1  | INFO: WARNING: Host local has more than 0 drives of set. A host failure will result in data becoming unavailable.
+minio-1  | MinIO Object Storage Server
+minio-1  | Copyright: 2015-2026 MinIO, Inc.
+minio-1  | License: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html
+minio-1  | Version: DEVELOPMENT.GOGET (go1.22.12 linux/amd64)
+minio-1  | 
+minio-1  | API: http://172.19.0.2:9000  http://127.0.0.1:9000 
+minio-1  | WebUI: http://172.19.0.2:9001 http://127.0.0.1:9001  
+minio-1  | 
+minio-1  | Docs: https://docs.min.io

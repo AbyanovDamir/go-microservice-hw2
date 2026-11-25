@@ -1,0 +1,17 @@
+app-1  | {"time":"2026-11-23T13:31:37.244142463Z","level":"INFO","msg":"audit","sequence":1,"action":"CREATE","user_id":1}
+minio-1  | MinIO Object Storage Server
+minio-1  | Copyright: 2015-2026 MinIO, Inc.
+minio-1  | License: GNU AGPLv3 - https://www.gnu.org/licenses/agpl-3.0.html
+minio-1  | Version: DEVELOPMENT.GOGET (go1.22.12 linux/amd64)
+minio-1  | 
+minio-1  | API: http://127.0.0.1:9000 
+minio-1  | WebUI: http://127.0.0.1:9001 
+minio-1  | 
+minio-1  | Docs: https://docs.min.io
+app-1    | {"time":"2026-11-23T13:31:37.27903194Z","level":"INFO","msg":"notification","event":"CREATE","user_id":1,"adapter":"log"}
+app-1    | {"time":"2026-11-23T13:31:37.279057391Z","level":"INFO","msg":"audit","sequence":2,"action":"UPDATE","user_id":1}
+app-1    | {"time":"2026-11-23T13:31:37.300089543Z","level":"INFO","msg":"notification","event":"UPDATE","user_id":1,"adapter":"log"}
+app-1    | {"time":"2026-11-23T13:31:37.300914414Z","level":"INFO","msg":"audit","sequence":3,"action":"DELETE","user_id":1}
+app-1    | {"time":"2026-11-23T13:31:37.318693416Z","level":"INFO","msg":"notification","event":"DELETE","user_id":1,"adapter":"log"}
+app-1    | {"time":"2026-11-23T13:31:37.856790982Z","level":"INFO","msg":"audit","sequence":4,"action":"CREATE","user_id":2}
+app-1    | {"time":"2026-11-23T13:31:37.89128824Z","level":"INFO","msg":"notification","event":"CREATE","user_id":2,"adapter":"log"}

@@ -1,0 +1,52 @@
+{
+  "default": {
+    "rps": 1736.2,
+    "latency_ms": 299.51,
+    "requests": 104333,
+    "seconds": 60.0,
+    "non_2xx": 18183,
+    "socket_errors": "connect 0, read 0, write 0, timeout 127",
+    "http_200": 86627,
+    "http_429": 18183
+  },
+  "paced": {
+    "rps": 758.73,
+    "latency_ms": 32.33,
+    "requests": 45760,
+    "seconds": 60.6,
+    "non_2xx": 0,
+    "socket_errors": "0",
+    "http_200": 46006,
+    "http_429": 0
+  },
+  "final": {
+    "rps": 1034.67,
+    "latency_ms": 4.9,
+    "requests": 62203,
+    "seconds": 60.0,
+    "non_2xx": 0,
+    "socket_errors": "0",
+    "http_200": 62205,
+    "http_429": 0
+  },
+  "targets": [
+    [
+      "users",
+      "up",
+      ""
+    ]
+  ],
+  "integration": {
+    "failed": 0,
+    "processed": 4,
+    "queue_depth": 0,
+    "s3_enabled": true
+  },
+  "final_targets": [
+    [
+      "users",
+      "up",
+      ""
+    ]
+  ]
+}

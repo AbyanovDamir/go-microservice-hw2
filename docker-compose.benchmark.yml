@@ -1,0 +1,49 @@
+# Linux-only benchmark profile. Services bind only to the VM loopback interface.
+# Global limiter: 1000 req/s, burst 5000. Use load-smooth.lua for a declared
+# uniform arrival profile slightly above 1000 req/s during the 60-second test.
+services:
+  minio:
+    build:
+      context: .
+      dockerfile: deploy/minio.Dockerfile
+    network_mode: host
+    command: server /data --address 127.0.0.1:9000 --console-address 127.0.0.1:9001
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-minioadmin123}
+    volumes:
+      - minio_data:/data
+  app:
+    build: .
+    network_mode: host
+    init: true
+    environment:
+      HTTP_ADDR: 127.0.0.1:8080
+      MINIO_ENDPOINT: 127.0.0.1:9000
+      MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-minioadmin}
+      MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-minioadmin123}
+      MINIO_BUCKET: users
+      S3_ENABLED: "true"
+      RATE_BURST: ${RATE_BURST:-5000}
+      GOMAXPROCS: ${GOMAXPROCS:-3}
+    depends_on:
+      - minio
+    restart: on-failure
+    stop_grace_period: 120s
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://127.0.0.1:8080/healthz"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+  prometheus:
+    image: quay.io/prometheus/prometheus:v2.55.1
+    network_mode: host
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --web.listen-address=127.0.0.1:9090
+    volumes:
+      - ./deploy/prometheus-host.yml:/etc/prometheus/prometheus.yml:ro
+    depends_on:
+      - app
+volumes:
+  minio_data:

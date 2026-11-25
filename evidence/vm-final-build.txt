@@ -1,0 +1,84 @@
+ Image go-dz2-20261123-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 957B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 464B 0.1s done
+#2 DONE 0.2s
+
+#3 [internal] load metadata for public.ecr.aws/docker/library/alpine:3.21
+#3 ...
+
+#4 [internal] load metadata for public.ecr.aws/docker/library/golang:1.22.12-alpine
+#4 DONE 0.5s
+
+#3 [internal] load metadata for public.ecr.aws/docker/library/alpine:3.21
+#3 DONE 0.5s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 111B 0.1s done
+#5 DONE 0.2s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [stage-1 1/3] FROM public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba
+#7 resolve public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba
+#7 DONE 0.4s
+
+#8 [builder 1/6] FROM public.ecr.aws/docker/library/golang:1.22.12-alpine@sha256:36aee4731273de331b70d8d0fc5ad27746f501484516fede92a8c90a4e4331ca
+#8 resolve public.ecr.aws/docker/library/golang:1.22.12-alpine@sha256:36aee4731273de331b70d8d0fc5ad27746f501484516fede92a8c90a4e4331ca
+#8 resolve public.ecr.aws/docker/library/golang:1.22.12-alpine@sha256:36aee4731273de331b70d8d0fc5ad27746f501484516fede92a8c90a4e4331ca 0.4s done
+#8 DONE 0.4s
+
+#7 [stage-1 1/3] FROM public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba
+#7 resolve public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba 0.4s done
+#7 DONE 0.4s
+
+#6 [internal] load build context
+#6 transferring context: 19.72MB 4.2s
+#6 transferring context: 21.95MB 4.6s done
+#6 DONE 4.7s
+
+#9 [builder 2/6] WORKDIR /src
+#9 CACHED
+
+#10 [builder 3/6] COPY go.mod go.sum ./
+#10 CACHED
+
+#11 [builder 4/6] RUN go mod download
+#11 CACHED
+
+#12 [builder 5/6] COPY . .
+#12 DONE 1.0s
+
+#13 [builder 6/6] RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /server .
+#13 DONE 196.4s
+
+#14 [stage-1 2/3] RUN apk add --no-cache ca-certificates && adduser -D -u 10001 app
+#14 CACHED
+
+#15 [stage-1 3/3] COPY --from=builder /server /app/server
+#15 DONE 0.3s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 3.1s done
+#16 exporting manifest sha256:4c5ae41d4e17c55e44f28bf06d165126f9b00261283bac54e54a2a9c9939aa9e
+#16 exporting manifest sha256:4c5ae41d4e17c55e44f28bf06d165126f9b00261283bac54e54a2a9c9939aa9e 0.1s done
+#16 exporting config sha256:31983dc255baf991c825f9f2878a01e1890c2de76d34d5814e48e2300e4da10a
+#16 exporting config sha256:31983dc255baf991c825f9f2878a01e1890c2de76d34d5814e48e2300e4da10a 0.1s done
+#16 exporting attestation manifest sha256:4a8929cef82c4b22b31ed4b4d64706b9ef4c929cff3be1fa040f06f02b39eabe
+#16 exporting attestation manifest sha256:4a8929cef82c4b22b31ed4b4d64706b9ef4c929cff3be1fa040f06f02b39eabe 0.1s done
+#16 exporting manifest list sha256:d7bbbb85134e81e899ef1e8e64f66d62ca63912ee1781e6d124f445c49a4f36f
+#16 exporting manifest list sha256:d7bbbb85134e81e899ef1e8e64f66d62ca63912ee1781e6d124f445c49a4f36f 0.1s done
+#16 naming to docker.io/library/go-dz2-20261123-app:latest
+#16 naming to docker.io/library/go-dz2-20261123-app:latest 0.1s done
+#16 unpacking to docker.io/library/go-dz2-20261123-app:latest
+#16 unpacking to docker.io/library/go-dz2-20261123-app:latest 1.0s done
+#16 DONE 5.1s
+
+#17 resolving provenance for metadata file
+#17 DONE 0.2s
+ Image go-dz2-20261123-app Built 

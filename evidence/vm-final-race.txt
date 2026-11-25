@@ -1,0 +1,33 @@
+?   	go-microservice	[no test files]
+=== RUN   TestCRUDAndInvalidInput
+--- PASS: TestCRUDAndInvalidInput (0.01s)
+=== RUN   TestQueueFullReturns503
+--- PASS: TestQueueFullReturns503 (0.00s)
+PASS
+ok  	go-microservice/handlers	1.125s
+?   	go-microservice/models	[no test files]
+=== RUN   TestComposeCRUDAndS3Archive
+    e2e_test.go:23: set RUN_E2E=1 after docker compose up
+--- SKIP: TestComposeCRUDAndS3Archive (0.00s)
+PASS
+ok  	go-microservice/integration	1.193s
+=== RUN   TestMetricsLabelsStatusAndLimiter
+--- PASS: TestMetricsLabelsStatusAndLimiter (0.05s)
+PASS
+ok  	go-microservice/metrics	1.205s
+=== RUN   TestS3ClientProtocol
+--- PASS: TestS3ClientProtocol (0.04s)
+=== RUN   TestConcurrentCRUDAndEventOrder
+--- PASS: TestConcurrentCRUDAndEventOrder (0.04s)
+=== RUN   TestQueueFailureDoesNotMutateStore
+--- PASS: TestQueueFailureDoesNotMutateStore (0.00s)
+PASS
+ok  	go-microservice/services	1.218s
+=== RUN   TestDispatcherRetriesAndDrains
+--- PASS: TestDispatcherRetriesAndDrains (0.13s)
+=== RUN   TestAPILimiterBurstAndSustainedRate
+--- PASS: TestAPILimiterBurstAndSustainedRate (0.00s)
+=== RUN   TestRateLimitHTTPResponse
+--- PASS: TestRateLimitHTTPResponse (0.00s)
+PASS
+ok  	go-microservice/utils	1.248s

@@ -1,0 +1,4 @@
+NAME                           IMAGE                                   COMMAND                  SERVICE      CREATED              STATUS                        PORTS
+go-dz2-20261123-app-1          go-dz2-20261123-app                     "/app/server"            app          About a minute ago   Up About a minute (healthy)   
+go-dz2-20261123-minio-1        go-dz2-20261123-minio                   "/usr/local/bin/mini…"   minio        15 minutes ago       Up 14 minutes                 
+go-dz2-20261123-prometheus-1   quay.io/prometheus/prometheus:v2.55.1   "/bin/prometheus --c…"   prometheus   14 minutes ago       Up 14 minutes                 

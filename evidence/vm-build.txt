@@ -1,0 +1,374 @@
+ Image go-dz2-20261123-minio Building 
+ Image go-dz2-20261123-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 974B 0.0s done
+#1 DONE 0.0s
+
+#2 [minio internal] load build definition from minio.Dockerfile
+#2 transferring dockerfile: 753B 0.0s done
+#2 DONE 0.1s
+
+#3 [app internal] load build definition from Dockerfile
+#3 transferring dockerfile: 464B 0.0s done
+#3 DONE 0.1s
+
+#4 [app internal] load metadata for public.ecr.aws/docker/library/golang:1.22.12-alpine
+#4 DONE 0.2s
+
+#5 [app internal] load metadata for public.ecr.aws/docker/library/alpine:3.21
+#5 DONE 0.2s
+
+#6 [app internal] load .dockerignore
+#6 transferring context: 111B 0.0s done
+#6 DONE 0.1s
+
+#7 [app internal] load build context
+#7 DONE 0.0s
+
+#8 [app stage-1 1/3] FROM public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba
+#8 resolve public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba
+#8 resolve public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba 0.2s done
+#8 resolve public.ecr.aws/docker/library/alpine:3.21@sha256:19f1757563ed09b06b24d92ba45ba04754fbc889e4b137976b4aff80964243ba 0.2s done
+#8 DONE 0.3s
+
+#9 [app stage-1 2/3] RUN apk add --no-cache ca-certificates && adduser -D -u 10001 app
+#9 CACHED
+
+#10 [minio stage-1 2/4] RUN apk add --no-cache ca-certificates && adduser -D -u 10001 minio     && mkdir /data && chown minio:minio /data
+#10 CACHED
+
+#7 [app internal] load build context
+#7 transferring context: 1.24kB 0.1s done
+#7 DONE 0.1s
+
+#11 [app builder 1/6] FROM public.ecr.aws/docker/library/golang:1.22.12-alpine@sha256:36aee4731273de331b70d8d0fc5ad27746f501484516fede92a8c90a4e4331ca
+#11 resolve public.ecr.aws/docker/library/golang:1.22.12-alpine@sha256:36aee4731273de331b70d8d0fc5ad27746f501484516fede92a8c90a4e4331ca 0.2s done
+#11 CACHED
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 ...
+
+#13 [app builder 2/6] WORKDIR /src
+#13 DONE 0.6s
+
+#14 [app builder 3/6] COPY go.mod go.sum ./
+#14 DONE 0.8s
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 ...
+
+#15 [app builder 4/6] RUN go mod download
+#15 ...
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 9.853 go: downloading github.com/minio/minio v0.0.0-20241013133411-d10bb7e1b667
+#12 31.17 go: downloading cloud.google.com/go/storage v1.43.0
+#12 31.60 go: downloading github.com/Azure/azure-sdk-for-go/sdk/azcore v1.14.0
+#12 31.68 go: downloading github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.7.0
+#12 33.21 go: downloading github.com/Azure/azure-sdk-for-go/sdk/storage/azblob v1.4.0
+#12 33.81 go: downloading cloud.google.com/go v0.115.1
+#12 34.84 go: downloading github.com/cespare/xxhash/v2 v2.3.0
+#12 34.85 go: downloading github.com/cheggaaa/pb v1.0.29
+#12 35.85 go: downloading github.com/coreos/go-oidc/v3 v3.11.0
+#12 35.87 go: downloading github.com/coreos/go-systemd/v22 v22.5.0
+#12 35.88 go: downloading github.com/cosnicolaou/pbzip2 v1.0.3
+#12 36.78 go: downloading github.com/dustin/go-humanize v1.0.1
+#12 36.79 go: downloading github.com/dchest/siphash v1.2.3
+#12 37.35 go: downloading github.com/fatih/color v1.17.0
+#12 37.36 go: downloading github.com/felixge/fgprof v0.9.4
+#12 37.86 go: downloading github.com/go-ldap/ldap/v3 v3.4.8
+#12 38.20 go: downloading github.com/go-openapi/loads v0.22.0
+#12 38.45 go: downloading github.com/golang-jwt/jwt/v4 v4.5.0
+#12 39.06 go: downloading github.com/google/uuid v1.6.0
+#12 39.10 go: downloading github.com/inconshreveable/mousetrap v1.1.0
+#12 40.33 go: downloading github.com/json-iterator/go v1.1.12
+#12 40.63 go: downloading github.com/klauspost/compress v1.17.10
+#12 ...
+
+#15 [app builder 4/6] RUN go mod download
+#15 DONE 43.3s
+
+#16 [app builder 5/6] COPY . .
+#16 DONE 1.2s
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 ...
+
+#17 [app builder 6/6] RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /server .
+#17 ...
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 53.58 go: downloading github.com/klauspost/filepathx v1.1.1
+#12 53.58 go: downloading github.com/klauspost/pgzip v1.2.6
+#12 53.58 go: downloading github.com/klauspost/readahead v1.4.0
+#12 53.88 go: downloading github.com/klauspost/reedsolomon v1.12.4
+#12 54.12 go: downloading github.com/lithammer/shortuuid/v4 v4.0.0
+#12 54.13 go: downloading github.com/miekg/dns v1.1.62
+#12 54.56 go: downloading github.com/minio/cli v1.24.2
+#12 54.86 go: downloading github.com/minio/console v1.7.1
+#12 65.74 go: downloading github.com/minio/dnscache v0.1.1
+#12 65.74 go: downloading github.com/minio/highwayhash v1.0.3
+#12 65.75 go: downloading github.com/minio/dperf v0.6.0
+#12 66.10 go: downloading github.com/minio/kms-go/kes v0.3.0
+#12 66.18 go: downloading github.com/minio/madmin-go/v3 v3.0.70
+#12 66.94 go: downloading github.com/minio/minio-go/v7 v7.0.77
+#12 67.69 go: downloading github.com/minio/mux v1.9.0
+#12 67.70 go: downloading github.com/minio/pkg/v3 v3.0.20
+#12 68.85 go: downloading github.com/minio/xxml v0.0.3
+#12 68.85 go: downloading github.com/minio/sio v0.4.1
+#12 68.85 go: downloading github.com/minio/selfupdate v0.6.0
+#12 69.23 go: downloading github.com/minio/zipindex v0.3.1
+#12 69.24 go: downloading github.com/mitchellh/go-homedir v1.1.0
+#12 69.41 go: downloading github.com/philhofer/fwd v1.1.3-0.20240916144458-20a13a1f6b7c
+#12 69.75 go: downloading github.com/pierrec/lz4/v4 v4.1.21
+#12 69.92 go: downloading github.com/pkg/errors v0.9.1
+#12 70.25 go: downloading github.com/pkg/sftp v1.13.6
+#12 71.78 go: downloading github.com/pkg/xattr v0.4.10
+#12 72.15 go: downloading github.com/prometheus/client_golang v1.20.2
+#12 75.41 go: downloading github.com/prometheus/client_model v0.6.1
+#12 75.42 go: downloading github.com/prometheus/common v0.59.1
+#12 76.05 go: downloading github.com/prometheus/procfs v0.15.1
+#12 77.62 go: downloading github.com/puzpuzpuz/xsync/v3 v3.4.0
+#12 78.07 go: downloading github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475
+#12 78.37 go: downloading github.com/rs/cors v1.11.1
+#12 78.59 go: downloading github.com/secure-io/sio-go v0.3.1
+#12 78.77 go: downloading github.com/shirou/gopsutil/v3 v3.24.5
+#12 80.46 go: downloading github.com/valyala/bytebufferpool v1.0.0
+#12 80.46 go: downloading github.com/tinylib/msgp v1.2.2
+#12 80.94 go: downloading github.com/zeebo/xxh3 v1.0.2
+#12 81.36 go: downloading go.etcd.io/etcd/api/v3 v3.5.16
+#12 81.75 go: downloading go.etcd.io/etcd/client/v3 v3.5.16
+#12 82.01 go: downloading go.uber.org/atomic v1.11.0
+#12 82.50 go: downloading goftp.io/server/v2 v2.0.1
+#12 82.77 go: downloading golang.org/x/crypto v0.27.0
+#12 84.68 go: downloading golang.org/x/exp v0.0.0-20240823005443-9b4947da3948
+#12 86.34 go: downloading golang.org/x/oauth2 v0.22.0
+#12 86.35 go: downloading golang.org/x/sync v0.8.0
+#12 86.75 go: downloading golang.org/x/sys v0.25.0
+#12 87.16 go: downloading golang.org/x/term v0.24.0
+#12 87.81 go: downloading google.golang.org/api v0.194.0
+#12 115.8 go: downloading gopkg.in/yaml.v2 v2.4.0
+#12 115.8 go: downloading gopkg.in/yaml.v3 v3.0.1
+#12 117.0 go: downloading github.com/Azure/azure-sdk-for-go/sdk/internal v1.10.0
+#12 117.0 go: downloading github.com/AzureAD/microsoft-authentication-library-for-go v1.2.2
+#12 117.7 go: downloading github.com/mattn/go-runewidth v0.0.16
+#12 117.7 go: downloading cloud.google.com/go/iam v1.2.0
+#12 117.7 go: downloading cloud.google.com/go/compute/metadata v0.5.0
+#12 118.2 go: downloading github.com/googleapis/gax-go/v2 v2.13.0
+#12 118.8 go: downloading google.golang.org/genproto v0.0.0-20240823204242-4ba0660f739c
+#12 120.0 go: downloading google.golang.org/grpc v1.66.2
+#12 124.8 go: downloading google.golang.org/protobuf v1.34.2
+#12 128.9 go: downloading github.com/go-jose/go-jose/v4 v4.0.4
+#12 129.6 go: downloading github.com/mattn/go-colorable v0.1.13
+#12 130.0 go: downloading github.com/mattn/go-isatty v0.0.20
+#12 130.5 go: downloading github.com/google/pprof v0.0.0-20240727154555-813a5fbdbec8
+#12 131.7 go: downloading github.com/go-asn1-ber/asn1-ber v1.5.7
+#12 131.7 go: downloading github.com/Azure/go-ntlmssp v0.0.0-20221128193559-754e69321358
+#12 132.2 go: downloading github.com/go-openapi/analysis v0.23.0
+#12 132.3 go: downloading github.com/go-openapi/spec v0.21.0
+#12 133.4 go: downloading github.com/go-openapi/swag v0.23.0
+#12 133.5 go: downloading github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd
+#12 133.8 go: downloading github.com/modern-go/reflect2 v1.0.2
+#12 133.8 go: downloading golang.org/x/net v0.29.0
+#12 134.6 go: downloading github.com/klauspost/cpuid/v2 v2.2.8
+#12 135.0 go: downloading github.com/go-openapi/errors v0.22.0
+#12 135.2 go: downloading github.com/go-openapi/runtime v0.28.0
+#12 135.7 go: downloading github.com/go-openapi/strfmt v0.23.0
+#12 136.3 go: downloading github.com/jessevdk/go-flags v1.6.1
+#12 137.0 go: downloading github.com/minio/mc v0.0.0-20240909075310-04c5116c9bdf
+#12 138.6 go: downloading github.com/minio/websocket v1.6.0
+#12 138.6 go: downloading github.com/unrolled/secure v1.15.0
+#12 138.6 go: downloading github.com/rs/xid v1.6.0
+#12 139.0 go: downloading github.com/ncw/directio v1.0.5
+#12 139.0 go: downloading aead.dev/mem v0.2.0
+#12 139.1 go: downloading github.com/prometheus/prom2json v1.4.0
+#12 139.3 go: downloading github.com/safchain/ethtool v0.4.1
+#12 139.5 go: downloading github.com/go-ini/ini v1.67.0
+#12 139.6 go: downloading github.com/goccy/go-json v0.10.3
+#12 139.7 go: downloading golang.org/x/time v0.6.0
+#12 139.9 go: downloading github.com/beevik/ntp v1.4.3
+#12 139.9 go: downloading go.uber.org/zap v1.27.0
+#12 140.1 go: downloading github.com/IBM/sarama v1.43.3
+#12 140.9 go: downloading github.com/eclipse/paho.mqtt.golang v1.5.0
+#12 141.4 go: downloading github.com/elastic/go-elasticsearch/v7 v7.17.10
+#12 141.8 go: downloading github.com/go-sql-driver/mysql v1.8.1
+#12 141.8 go: downloading github.com/gomodule/redigo v1.9.2
+#12 142.8 go: downloading github.com/lib/pq v1.10.9
+#12 142.9 go: downloading github.com/nats-io/nats.go v1.37.0
+#12 143.4 go: downloading github.com/nats-io/stan.go v0.10.4
+#12 143.8 go: downloading github.com/nsqio/go-nsq v1.1.0
+#12 144.3 go: downloading github.com/rabbitmq/amqp091-go v1.10.0
+#12 144.5 go: downloading github.com/xdg/scram v1.0.5
+#12 144.5 go: downloading github.com/gobwas/ws v1.4.0
+#12 145.0 go: downloading github.com/minio/md5-simd v1.1.2
+#12 145.0 go: downloading github.com/buger/jsonparser v1.1.1
+#12 145.0 go: downloading github.com/minio/kms-go/kms v0.4.0
+#12 145.3 go: downloading github.com/minio/simdjson-go v0.4.5
+#12 145.4 go: downloading github.com/lestrrat-go/jwx v1.2.30
+#12 152.2 go: downloading github.com/montanaflynn/stats v0.7.1
+#12 152.2 go: downloading github.com/fatih/structs v1.1.0
+#12 152.2 go: downloading github.com/rjeczalik/notify v0.9.3
+#12 153.6 go: downloading aead.dev/minisign v0.3.0
+#12 154.6 go: downloading github.com/kr/fs v0.1.0
+#12 154.6 go: downloading github.com/beorn7/perks v1.0.1
+#12 156.3 go: downloading github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
+#12 158.4 go: downloading github.com/tklauser/go-sysconf v0.3.14
+#12 158.4 go: downloading github.com/gogo/protobuf v1.3.2
+#12 173.7 go: downloading github.com/golang/protobuf v1.5.4
+#12 173.7 go: downloading go.etcd.io/etcd/client/pkg/v3 v3.5.16
+#12 175.8 go: downloading cloud.google.com/go/auth v0.9.1
+#12 176.2 go: downloading github.com/kylelemons/godebug v1.1.0
+#12 178.1 go: downloading github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c
+#12 178.4 go: downloading github.com/rivo/uniseg v0.4.7
+#12 179.7 go: downloading go.opencensus.io v0.24.0
+#12 179.7 go: downloading go.opentelemetry.io/otel v1.29.0
+#12 184.2 go: downloading google.golang.org/genproto/googleapis/rpc v0.0.0-20240903143218-8af14fe29dc1
+#12 184.2 go: downloading google.golang.org/genproto/googleapis/api v0.0.0-20240903143218-8af14fe29dc1
+#12 184.2 go: downloading go.opentelemetry.io/otel/trace v1.29.0
+#12 184.7 go: downloading cloud.google.com/go/auth/oauth2adapt v0.2.4
+#12 184.8 go: downloading go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.54.0
+#12 185.1 go: downloading github.com/go-openapi/jsonpointer v0.21.0
+#12 185.3 go: downloading github.com/go-openapi/jsonreference v0.21.0
+#12 185.5 go: downloading github.com/mailru/easyjson v0.7.7
+#12 186.3 go: downloading github.com/go-openapi/validate v0.24.0
+#12 187.8 go: downloading github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2
+#12 187.9 go: downloading github.com/mitchellh/mapstructure v1.5.0
+#12 188.3 go: downloading github.com/oklog/ulid v1.3.1
+#12 188.4 go: downloading go.mongodb.org/mongo-driver v1.16.1
+#12 202.4 go: downloading github.com/docker/go-units v0.5.0
+#12 202.4 go: downloading github.com/mattn/go-ieproxy v0.0.12
+#12 202.4 go: downloading github.com/tidwall/gjson v1.17.3
+#12 202.8 go: downloading github.com/jedib0t/go-pretty/v6 v6.5.9
+#12 202.9 go: downloading github.com/charmbracelet/bubbles v0.19.0
+#12 205.2 go: downloading github.com/charmbracelet/bubbletea v0.27.1
+#12 205.2 go: downloading github.com/charmbracelet/lipgloss v0.13.0
+#12 205.7 go: downloading github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
+#12 205.7 go: downloading github.com/minio/colorjson v1.0.8
+#12 205.9 go: downloading github.com/minio/filepath v1.0.0
+#12 206.0 go: downloading github.com/muesli/reflow v0.3.0
+#12 206.3 go: downloading github.com/muesli/termenv v0.15.2
+#12 207.3 go: downloading github.com/posener/complete v1.2.3
+#12 207.3 go: downloading github.com/olekukonko/tablewriter v0.0.5
+#12 207.6 go: downloading github.com/vbauerster/mpb/v8 v8.8.2
+#12 208.0 go: downloading golang.org/x/text v0.18.0
+#12 221.0 go: downloading github.com/matttproud/golang_protobuf_extensions v1.0.4
+#12 221.0 go: downloading go.uber.org/multierr v1.11.0
+#12 228.3 go: downloading github.com/gorilla/websocket v1.5.3
+#12 228.5 go: downloading github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc
+#12 229.3 go: downloading github.com/eapache/go-resiliency v1.7.0
+#12 229.4 go: downloading github.com/eapache/go-xerial-snappy v0.0.0-20230731223053-c322873962e3
+#12 230.0 go: downloading github.com/eapache/queue v1.1.0
+#12 230.2 go: downloading github.com/hashicorp/go-multierror v1.1.1
+#12 230.3 go: downloading github.com/jcmturner/gofork v1.7.6
+#12 230.9 go: downloading github.com/jcmturner/gokrb5/v8 v8.4.4
+#12 232.6 go: downloading filippo.io/edwards25519 v1.1.0
+#12 232.6 go: downloading github.com/nats-io/nuid v1.0.1
+#12 234.5 go: downloading github.com/nats-io/nkeys v0.4.7
+#12 234.5 go: downloading github.com/golang/snappy v0.0.4
+#12 236.8 go: downloading github.com/xdg/stringprep v1.0.3
+#12 236.8 go: downloading github.com/gobwas/httphead v0.1.0
+#12 237.1 go: downloading github.com/gobwas/pool v0.2.1
+#12 238.9 go: downloading github.com/minio/csvparser v1.0.0
+#12 238.9 go: downloading github.com/fraugster/parquet-go v0.12.0
+#12 239.6 go: downloading github.com/alecthomas/participle v0.7.1
+#12 240.1 go: downloading github.com/lestrrat-go/backoff/v2 v2.0.8
+#12 240.4 go: downloading github.com/lestrrat-go/blackmagic v1.0.2
+#12 240.4 go: downloading github.com/lestrrat-go/httpcc v1.0.1
+#12 240.5 go: downloading github.com/lestrrat-go/iter v1.0.2
+#12 240.7 go: downloading github.com/lestrrat-go/option v1.0.1
+#12 240.9 go: downloading github.com/tklauser/numcpus v0.8.0
+#12 240.9 go: downloading github.com/coreos/go-semver v0.3.1
+#12 241.1 go: downloading github.com/google/s2a-go v0.1.8
+#12 241.7 go: downloading github.com/golang-jwt/jwt/v5 v5.2.1
+#12 242.7 go: downloading github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da
+#12 242.8 go: downloading github.com/go-logr/logr v1.4.2
+#12 242.9 go: downloading go.opentelemetry.io/otel/metric v1.29.0
+#12 243.1 go: downloading go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.54.0
+#12 243.5 go: downloading github.com/felixge/httpsnoop v1.0.4
+#12 243.5 go: downloading github.com/googleapis/enterprise-certificate-proxy v0.3.2
+#12 244.0 go: downloading github.com/josharian/intern v1.0.0
+#12 244.3 go: downloading github.com/tidwall/match v1.1.1
+#12 244.3 go: downloading github.com/tidwall/pretty v1.2.1
+#12 244.5 go: downloading github.com/charmbracelet/x/ansi v0.2.3
+#12 244.7 go: downloading github.com/charmbracelet/x/term v0.2.0
+#12 244.7 go: downloading github.com/muesli/ansi v0.0.0-20230316100256-276c6243b2f6
+#12 245.3 go: downloading github.com/muesli/cancelreader v0.2.2
+#12 245.4 go: downloading github.com/juju/ratelimit v1.0.2
+#12 245.7 go: downloading github.com/aymanbagabas/go-osc52/v2 v2.0.1
+#12 246.3 go: downloading github.com/lucasb-eyer/go-colorful v1.2.0
+#12 246.4 go: downloading github.com/VividCortex/ewma v1.2.0
+#12 246.4 go: downloading github.com/acarl005/stripansi v0.0.0-20180116102854-5a71ef0e047d
+#12 248.2 go: downloading github.com/prometheus/prometheus v0.54.1
+#12 248.2 go: downloading github.com/hashicorp/errwrap v1.1.0
+#12 257.7 go: downloading github.com/jcmturner/dnsutils/v2 v2.0.0
+#12 261.4 go: downloading github.com/hashicorp/go-uuid v1.0.3
+#12 261.9 go: downloading github.com/apache/thrift v0.20.0
+#12 261.9 go: downloading github.com/go-logr/stdr v1.2.2
+#12 273.4 go: downloading github.com/jcmturner/rpc/v2 v2.0.3
+#12 279.2 go: downloading github.com/jcmturner/aescts/v2 v2.0.0
+#12 ...
+
+#17 [app builder 6/6] RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /server .
+#17 DONE 309.5s
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 ...
+
+#18 [app stage-1 3/3] COPY --from=builder /server /app/server
+#18 DONE 1.0s
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 ...
+
+#19 [app] exporting to image
+#19 exporting layers
+#19 exporting layers 5.4s done
+#19 exporting manifest sha256:bbb3ce34545f6e79f68aef268643ee459d54077522d505adb3287d8911d80e6c 0.1s done
+#19 exporting config sha256:46825f61df3ebead3cf7df3392a5c746df5527184e0713af8f9da2109c6b1b6e
+#19 exporting config sha256:46825f61df3ebead3cf7df3392a5c746df5527184e0713af8f9da2109c6b1b6e 0.3s done
+#19 exporting attestation manifest sha256:ebff427a97e766a31db3ac4626171e8199d0d9bff4e699dd5b7f0b53aef71091
+#19 exporting attestation manifest sha256:ebff427a97e766a31db3ac4626171e8199d0d9bff4e699dd5b7f0b53aef71091 0.2s done
+#19 exporting manifest list sha256:135ecf3bee95c0c293065e477f207a8f82e17648c1d2453eff6d76431be6272c
+#19 exporting manifest list sha256:135ecf3bee95c0c293065e477f207a8f82e17648c1d2453eff6d76431be6272c 0.2s done
+#19 naming to docker.io/library/go-dz2-20261123-app:latest
+#19 naming to docker.io/library/go-dz2-20261123-app:latest 0.0s done
+#19 unpacking to docker.io/library/go-dz2-20261123-app:latest
+#19 unpacking to docker.io/library/go-dz2-20261123-app:latest 2.3s done
+#19 DONE 8.8s
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 ...
+
+#20 [app] resolving provenance for metadata file
+#20 DONE 0.2s
+
+#12 [minio builder 2/2] RUN CGO_ENABLED=0 GOBIN=/out go install github.com/minio/minio@RELEASE.2024-10-13T13-34-11Z     && cp /go/pkg/mod/github.com/minio/minio@*/LICENSE /out/MINIO-LICENSE
+#12 DONE 982.6s
+
+#21 [minio stage-1 3/4] COPY --from=builder /out/minio /usr/local/bin/minio
+#21 DONE 9.1s
+
+#22 [minio stage-1 4/4] COPY --from=builder /out/MINIO-LICENSE /usr/share/licenses/minio/LICENSE
+#22 DONE 0.6s
+
+#23 [minio] exporting to image
+#23 exporting layers
+#23 exporting layers 33.2s done
+#23 exporting manifest sha256:207cf6fa752fa3813d97f7cdd53fb87720e9aaa5f8393f8568462f1584a1410f
+#23 exporting manifest sha256:207cf6fa752fa3813d97f7cdd53fb87720e9aaa5f8393f8568462f1584a1410f 0.2s done
+#23 exporting config sha256:f95a0fef392e60cbf930ea6ec1bb9a874470c1fc83328509aa962eeba4fcf943
+#23 exporting config sha256:f95a0fef392e60cbf930ea6ec1bb9a874470c1fc83328509aa962eeba4fcf943 0.2s done
+#23 exporting attestation manifest sha256:a2b59d6a037aff525f17853fba90f9395d9ac3eb82b41a21e3fab4a9e1008ef2
+#23 exporting attestation manifest sha256:a2b59d6a037aff525f17853fba90f9395d9ac3eb82b41a21e3fab4a9e1008ef2 0.2s done
+#23 exporting manifest list sha256:c4f0e6acaf7d5566143b30a6237dd0582e7b435a41962503c2c8102143438aee
+#23 exporting manifest list sha256:c4f0e6acaf7d5566143b30a6237dd0582e7b435a41962503c2c8102143438aee 0.2s done
+#23 naming to docker.io/library/go-dz2-20261123-minio:latest
+#23 naming to docker.io/library/go-dz2-20261123-minio:latest 0.0s done
+#23 unpacking to docker.io/library/go-dz2-20261123-minio:latest
+#23 unpacking to docker.io/library/go-dz2-20261123-minio:latest 19.1s done
+#23 DONE 53.7s
+
+#24 [minio] resolving provenance for metadata file
+#24 DONE 0.2s
+ Image go-dz2-20261123-app Built 
+ Image go-dz2-20261123-minio Built 

@@ -1,0 +1,2 @@
+{"time":"2026-11-23T16:21:35.256871282+03:00","level":"INFO","msg":"audit","sequence":1,"action":"CREATE","user_id":1}
+{"time":"2026-11-23T16:21:35.258881653+03:00","level":"INFO","msg":"notification","event":"CREATE","user_id":1,"adapter":"log"}

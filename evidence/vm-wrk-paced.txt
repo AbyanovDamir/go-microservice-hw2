@@ -1,0 +1,15 @@
++ set -x
++ wrk -t12 -c500 -d60s --latency -s scripts/load-paced.lua http://localhost:8080/api/users
+Running 1m test @ http://localhost:8080/api/users
+  12 threads and 500 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    32.33ms   36.87ms 476.33ms   84.86%
+    Req/Sec    96.73     95.30   404.00     82.51%
+  Latency Distribution
+     50%   17.20ms
+     75%   44.60ms
+     90%   89.00ms
+     99%  152.58ms
+  45760 requests in 1.01m, 7.86MB read
+Requests/sec:    758.73
+Transfer/sec:    133.37KB

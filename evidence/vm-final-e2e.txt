@@ -1,0 +1,18 @@
+=== RUN   TestComposeCRUDAndS3Archive
+    e2e_test.go:54: POST /api/users -> 201
+    e2e_test.go:59: GET /api/users/1 -> 200
+    e2e_test.go:60: PUT /api/users/1 -> 200
+    e2e_test.go:61: DELETE /api/users/1 -> 204
+    e2e_test.go:62: GET /api/users/1 -> 404
+    e2e_test.go:63: POST /api/users -> 400
+    e2e_test.go:123: S3 event sequence=1 action=CREATE user_id=1
+    e2e_test.go:123: S3 event sequence=2 action=UPDATE user_id=1
+    e2e_test.go:123: S3 event sequence=3 action=DELETE user_id=1
+    e2e_test.go:126: S3 object: users/events/0080a3f224f0d1f35c5729b39890bd95/00000000000000000001.json
+    e2e_test.go:126: S3 object: users/events/0080a3f224f0d1f35c5729b39890bd95/00000000000000000002.json
+    e2e_test.go:126: S3 object: users/events/0080a3f224f0d1f35c5729b39890bd95/00000000000000000003.json
+    e2e_test.go:128: GET /api/integration/status -> 200
+    e2e_test.go:129: Real MinIO archive verified: CREATE -> UPDATE -> DELETE
+--- PASS: TestComposeCRUDAndS3Archive (0.48s)
+PASS
+ok  	go-microservice/integration	0.526s

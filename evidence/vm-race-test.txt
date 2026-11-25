@@ -1,0 +1,47 @@
+go: downloading github.com/gorilla/mux v1.8.1
+go: downloading github.com/minio/minio-go/v7 v7.0.76
+go: downloading github.com/prometheus/client_golang v1.20.5
+go: downloading golang.org/x/time v0.7.0
+go: downloading github.com/goccy/go-json v0.10.3
+go: downloading github.com/google/uuid v1.6.0
+go: downloading github.com/klauspost/compress v1.17.9
+go: downloading github.com/minio/md5-simd v1.1.2
+go: downloading golang.org/x/net v0.28.0
+go: downloading github.com/go-ini/ini v1.67.0
+go: downloading github.com/beorn7/perks v1.0.1
+go: downloading github.com/cespare/xxhash/v2 v2.3.0
+go: downloading github.com/prometheus/client_model v0.6.1
+go: downloading github.com/prometheus/common v0.55.0
+go: downloading github.com/prometheus/procfs v0.15.1
+go: downloading google.golang.org/protobuf v1.34.2
+go: downloading github.com/klauspost/cpuid/v2 v2.2.8
+go: downloading github.com/dustin/go-humanize v1.0.1
+go: downloading golang.org/x/crypto v0.26.0
+go: downloading github.com/rs/xid v1.6.0
+go: downloading github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822
+go: downloading golang.org/x/sys v0.24.0
+go: downloading golang.org/x/text v0.17.0
+?   	go-microservice	[no test files]
+?   	go-microservice/models	[no test files]
+=== RUN   TestCRUDAndInvalidInput
+--- PASS: TestCRUDAndInvalidInput (0.01s)
+=== RUN   TestQueueFullReturns503
+--- PASS: TestQueueFullReturns503 (0.00s)
+PASS
+ok  	go-microservice/handlers	1.107s
+=== RUN   TestMetricsLabelsStatusAndLimiter
+--- PASS: TestMetricsLabelsStatusAndLimiter (0.03s)
+PASS
+ok  	go-microservice/metrics	1.548s
+=== RUN   TestS3ClientProtocol
+--- PASS: TestS3ClientProtocol (0.07s)
+=== RUN   TestConcurrentCRUDAndEventOrder
+--- PASS: TestConcurrentCRUDAndEventOrder (0.16s)
+=== RUN   TestQueueFailureDoesNotMutateStore
+--- PASS: TestQueueFailureDoesNotMutateStore (0.00s)
+PASS
+ok  	go-microservice/services	1.392s
+=== RUN   TestDispatcherRetriesAndDrains
+--- PASS: TestDispatcherRetriesAndDrains (0.11s)
+PASS
+ok  	go-microservice/utils	1.175s

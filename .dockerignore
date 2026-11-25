@@ -1,0 +1,9 @@
+.git
+evidence
+*.exe
+*.docx
+*.zip
+*.tar.gz
+ubuntu.sources.before
+native-server
+minimal-diagnostic
